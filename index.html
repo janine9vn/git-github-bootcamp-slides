@@ -1,40 +1,449 @@
 <!doctype html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <title>Git & GitHub Bootcamp</title>
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <link rel="stylesheet" href="dist/reset.css">
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/simple.css">
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css">
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+
+</head>
+
+<body>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .col {
+            flex: 1;
+        }
+
+        .center-box {
+            flex-flow: column;
+            width: 80%;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: left;
+        }
+
+        .reveal .text-center p {
+            text-align: center;
+            margin: 10px;
+        }
+
+        .overflow {
+            overflow: auto;
+            width: 100%;
+            /* Takes up the whole width of the slide */
+            height: 400px;
+            /* 100% doesn't work here, 400px seems to work well with almost every resolution. */
+        }
+    </style>
+
+    <div class="reveal">
+        <div class="slides">
+            <section>
+                <h1>Git & GitHub Bootcamp</h1>
+                <h2>Python Discord</h2>
+            </section>
+
+            <section>
+                <h2>What is Git?</h2>
+                <div class="container">
+                    <div class="center-box">
+                        <p>
+                        <h3 class="fragment">A type of Version Control System</h3>
+                        <ul class="fragment">
+                            <li>Keeps track of changes in your code and who made the changes</li>
+                            <li>You take "snapshots" of the code, called <b><em>commits</em></b></li>
+                            <li>Your project, and its entire commit history, is called a <b><em>repository</em></b>
+                                (repo)</li>
+                            <li>Your repo can keep track of different versions of your code with
+                                <b><em>branches</em></b>
+                            </li>
+                        </ul>
+                        </p>
+                        <p>
+                        <h3 class="fragment">Where does Git run?</h3>
+                        <ul class="fragment">
+                            <li>Git runs locally on your computer</li>
+                            <li>Something something about repos, ask Scofflaw for some verbiage</li>
+                            <li>It keeps track of the history (and your git settings) in a folder called
+                                <code>.git</code>
+                            </li>
+                            <li>You can <code>push</code> code from your computer to a a hosted environment (i.e.
+                                GitHub, GitLab)</li>
+                            <li>You can <code>fetch</code> or <code>pull</code> code from that hosted environment to
+                                your computer</li>
+                        </ul>
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Let's Install Git</h2>
+                <div class="container">
+                    <div class="col">
+                        <h3>Windows</h3>
+                        <p>
+                        <ol>
+                            <li>Download from <a>git-scm.com</a></li>
+                            <li>Launch the installer and select default options</li>
+                        </ol>
+                        </p>
+                    </div>
+                    <div class="col">
+                        <h3>Mac</h3>
+                        <p>
+                        <ol>
+                            <li>Install <a>homebrew</a> (if you haven't)</li>
+                            <li>Install git <br />
+                                <pre><code data-trim>brew install git</code></pre>
+                            </li>
+                        </ol>
+                        </p>
+                    </div>
+                    <div class="col">
+                        <h3>Linux</h3>
+                        <p>
+                        <ul>
+                            <li>Install with <a>your distro's package manager</a></li>
+                        </ul>
+                        Examples:
+                        <pre>
+							<code data-trim>
+								apt-get install git
+								pacman -S git
+								yum install git
+							</code>
+						</pre>
+                        </p>
+                    </div>
+                </div>
+                <center style="padding-top: 10px;">
+                    <img data-src="./imgs/git-scm-website-ss.jpg" style="max-width: 500px;">
+                </center>
+
+            </section>
+
+            <section>
+                <h2>Configuring Git</h2>
+                <div class="center-box">
+                    <p>Now that we have git installed, we need to run a few commands to get it set-up.</p>
+                    <pre><code data-trim>
+						git config --global user.name "Your Username Here"
+						git config --global user.email "your@email.here"
+					</code></pre>
+                    <br />
+                    <p>By default, git will use your default test editor for your commits. If you'd like to change it,
+                        this is the command to run.</p>
+                    <pre><code data-trim>git config --global core.editor path_variable_for_editor_here</code></pre>
+                    <p>In general, something like nano, notepad++, or vim is recommended.</p>
+                </div>
+
+            </section>
+
+            <section>
+                <h2>How do we use Git?</h2>
+                <div class="container">
+                    <div class="col">
+                        <p>
+                        <ul>
+                            <li class="fragment" data-fragment-index="1">
+                                With a brand new project, the first thing we have to do is tell git we want to track
+                                files at all.
+                                <pre><code data-trim>git init</code></pre>
+                            </li>
+                            <li class="fragment" data-fragment-index="3">
+                                Let's see what's in our folder now
+                                <pre><code>git status</code></pre>
+                            </li>
+                        </ul>
+                        </p>
+                        <p class="fragment">
+                            Awesome! Git is now tracking this folder. Let's talk about commits now.
+                        </p>
+                    </div>
+                    <div class="col r-stack" style="text-align: center;">
+                        <img class="fragment current-visible" data-fragment-index="1" src="./imgs/3c.png">
+                        <img class="fragment current-visible" data-fragment-index="3" src="./imgs/3c.png"
+                            style="transform: rotate(0.5turn)">
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Let's make our first <code>git commit</code></h2>
+                <div class="text-center">
+                    <p>Committing a file is us telling git that we want to save the current code as a point in history.
+                    </p>
+                </div>
+                <p>
+                <ol>
+                    <li><b>We add the files we want to commit to our staging area</b>
+                        <br />
+                        To add all files:
+                        <pre><code>git add .</code></pre>
+                        To add specific files:
+                        <pre><code>git add hello_world.py</code></pre>
+                    </li>
+                    <li><b>Let's write our commit message, telling other people what is changing</b>
+                        <br />
+                        This will open your editor to write a message:
+                        <pre><code>git commit</code></pre>
+                        For short and sweet commits you can do:
+                        <pre><code>git commit -m "Title" -m "Description"</code></pre>
+                    </li>
+                </ol>
+                </p>
+                <div class="text-center">
+                    <p>VSCode and PyCharm have git interfaces if you'd rather not use the terminal.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>What happens when we <code>git commit</code>?</h2>
+                <div class="container">
+                    <div class="col">
+                        <div class="text-center">
+                            <p>Committing a file is ur telling get we want to save the current code as a snapshot, a
+                                point in history we can revisit if we have to.</p>
+                            <p>What happens when we make a second commit?</p>
+                        </div>
+                        <pre><code data-trim data-line-numbers="2">
+                            print("hello world")
+                            print("hello Python Discord!")
+                        </code></pre>
+                        <pre><code data-trim>
+                            git add .
+                            git commit -m "Add another hello print"
+                        </code></pre>
+                    </div>
+                    <div class="col">
+                        <svg viewbox="0 0 200 400" width="200" height="400">
+                            <g class="fragment">
+                                <circle cx="100" cy="370" r="30" fill="#827191"/>
+                                <text x="90" y="380">00</text>
+                                <line/>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>How does <code>git branch</code> work?</h2>
+                <div class="container">
+                    <div class="col" style="text-align: left;">
+                        <h3 class="fragment">What is branch?</h3>     
+                        <p class="fragment">A branch is a different version of your codebase where you can have different commits and a different commit history.</p>
+                        <h3 class="fragment">Why do we use branches?</h3>
+                        <p class="fragment">Branches allow you to work on different versions of your code and switch between them easily.</p>
+                        <p class="fragment">You can merge branches together and git will do the behind-the-scenes work of fitting together the different commits into one cohesive history.</p>
+                    </div>
+                <div class="col">
+                    <svg viewbox="0 0 200 450" width="200" height="450">
+                        <g>
+                            <line x1="65" y1="380" x2="140" y2="380" style="stroke:#827191; stroke-width: 2px;"/>
+                            <text x="80" y="399">main</text>
+                        </g>
+                        <g>
+                            <line x1="100" y1="340" x2="100" y2="300" style="stroke:#827191; stroke-width: 2px;"/>
+                        </g>
+                        <g>
+                            <circle cx="100" cy="340" r="30" fill="#827191"/>
+                            <text x="90" y="345">00</text>
+                        </g>
+                        
+                    </svg>
+                </div>
+            </div>
+            </section>
+
+            <section>
+                <h2>Branching Strategies</h2>
+                <div class="text-center">
+                    <p>Help, I don't really know what to write here.</p>
+                    <p>It should roughly talk about the purpose of branches, like feature branches, bug fixes, etc.</p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Git and GitHub</h2>
+                <div class="center-box">
+                <p>
+                    <b>Git</b> - <em>version control; software responsible for tracking changes to your files</em><br/>
+                    Handles committing, merging, branches, push, and pulling</p>
+                <br/>
+                <p>
+                    <b>GitHub</b> - <em>a git forge; online service to store git repositories</em><br/>
+                    Has additional features such as:
+                    <ul>
+                        
+                        <li>Forking - allowing others to make their own copy of a repository</li>
+                        <li>Pull Requests - Merge branches with the opportunity to review and request changes</li>
+                    </ul>
+                </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Hooking up Git and GitHub</h2>
+                <div class="center-box">
+                    <h3>SSH Information goes here</h3>
+                    <p>
+                        Using the SSH protocal, you can connect and authenticate to remote servers and services.
+                        With SSH keys, you can connect GitHub without supplying your username and password each visit.
+                    </p>
+                    <p>
+                        <b>Setup</b>
+                        <ul>
+                            <li>Create a new SSH key --needs a link--</li>
+                            <li>Add your SSH key to GitHub --needs a link--</li>
+                        </ul>
+                    </p>
+                    <p>
+                        <b>Further Reading</b>
+                        <ul>
+                            <li>GitHub's SSH guide --needs a link--</li>
+                        </ul>
+                    </p>
+                    <h3>Personal Access Tokens goes here</h3>
+                    <p>
+                        Are SSH tokens just a bit too much for you to deal with? You can use GitHub's Personal Acccess Tokens.<br/>
+                        See this guide: --link goes here--
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Working with Git & GitHub</h2>
+                <div class="container">
+                    <div class="col">
+                        <div class="center-box">
+                            <p>
+                                You know how to work with git locally and you have GitHub setup. Let's work with them together.
+                                <ul>
+                                    <li>Let's <code>push</code> our local repository to GitHub, that way others can access it</li>
+                                    <pre><code data-trim>git push args here</code></pre>
+                                    <li>Typing that URL each time is going to get annoying, let's add it as a repo alias</li>
+                                    <pre><code data-trim>git repo add args or whatever here</code></pre>
+                                </ul>
+                            </p>
+                            <p>
+                                Someone made changes to the repository, let's <code>pull</code> down those changes so we can view it locally.
+                                <ul>
+                                    <li>The person who m ade the changes needs to <code>push</code> it to GitHub</li>
+                                    <li>We can <code>pull</code> down the changes to our local machine</li>
+                                    <pre><code data-trim>git pull args here</code></pre>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        The little image/graph thing goes here
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>GitHub's Additional Features</h2>
+                <div class="center-box">
+                    <h3>Pull Requests & Reviewing</h3>
+                    <p>
+                        <ul>
+                            <li>A pull request is an action you can take...</li>
+                        </ul>
+                    </p>
+                </div>
+                <section>
+                    <div class="center-box">
+                        <h3>Forking</h3>
+                        <p>Stuff about forking goes here</p>
+                        <h3>Actions</h3>
+                        <p>Should be brief and just a quick link to more information about it</p>
+                    </div>
+                </section>
+            </section>
+
+            
+
+            <section>
+                <h2>What if I don't like the command line?</h2>
+                <div class="center-box">
+                    <p>
+                        <ul>
+                            <li>GitHub Desktop</li>
+                            <li>GitKraken</li>
+                            <li>VSCode with Git</li>
+                            <li>PyCharm with Git</li>
+                        </ul>
+                    </p>
+                </div>
+            </section>
+
+            <section>
+                <h2>Guidelines, Clarifications, & Further Reading</h2>
+                <p>Should cover:
+                    <ul>
+                        <li>How to write good commit messages</li>
+                        <li>What is an atomic commit?</li>
+                        <li>Pull vs Fetch</li>
+                        <li>Merge vs Rebase</li>
+                    </ul>
+                </p>
+                <section>
+                    <h2>How to write good commit messages</h2>
+                    <p>Let's give a nice and quick rundown of what a good commit is and all the components</p>
+                    <p>Maybe even a "dissection" of an example commit, pointing out all the pieces</p>
+                </section>
+                <section>
+                    <h2>What is an atomic commit?</h2>
+                    <p>Have Seb write something</p>
+                </section>
+                <section>
+                    <h2>Pull vs Fetch</h2>
+                </section>
+                <section>
+                    <h2>Merge vs Rebase</h2>
+                </section>
+            </section>
+
+            <section>
+                <h2>References & Cheatsheets</h2>
+                <p>Link dump time!</p>
+            </section>
+
+            <section>
+                <h2>Let's practice!</h2>
+            </section>
+        </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+        // More info about initialization & config:
+        // - https://revealjs.com/initialization/
+        // - https://revealjs.com/config/
+        Reveal.initialize({
+            hash: true,
+
+            // Learn about plugins: https://revealjs.com/plugins/
+            plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+        });
+    </script>
+</body>
+
 </html>
