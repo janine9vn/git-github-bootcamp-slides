@@ -153,7 +153,6 @@
                     <pre><code data-trim>git config --global core.editor path_variable_for_editor_here</code></pre>
                     <p>In general, something like nano, notepad++, or vim is recommended.</p>
                 </div>
-
             </section>
 
             <section>
@@ -321,6 +320,7 @@
 
             <section>
                 <h2>Hooking up Git and GitHub</h2>
+                <section>
                 <div class="center-box">
                     <h3>SSH Information</h3>
                     <p>
@@ -332,6 +332,7 @@
                         <ul>
                             <li><a href="https://www.atlassian.com/git/tutorials/git-ssh" target="_blank" rel="noreferrer noopener">Create a new SSH key</a></li>
                             <li><a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh" target="_blank" rel="noreferrer noopener">Add your SSH key to GitHub</a></li>
+                            <li><a href="https://gist.github.com/xirixiz/b6b0c6f4917ce17a90e00f9b60566278" target="_blank" rel="noreferrer noopener">Walk thourgh for setting up and testing your SSH</a></li>
                         </ul>
                     </p>
                     <h3>Personal Access Tokens (PAT)</h3>
@@ -345,6 +346,21 @@
                         </ul>
                     </p>
                 </div>
+                </section>
+                <section>
+                    <h2>Tell Git to use the Windows Credential Manager</h2>
+                    <div class="center-box">
+                        <p>
+                            If you're having some trouble with Git and GitHub authentication and you're on Windows, you can run the following command
+                            to tell Git to use the Windows Credential Manager.
+                            <pre><code>git config --global credential.helper manager-core</code></pre>
+                        </p>
+                        <p>
+                            If you use any git command after this, Windows will ask you to enter your GitHub login details. This will let you clone and push to any https
+                            git repo that you have access to!
+                        </p>
+                    </div>
+                </section>
             </section>
 
             <section>
@@ -454,6 +470,15 @@
                         </ul>
                     </p>
                 </div>
+                <h2>What if I <italic>really</italic> like the command line?</h2>
+                <div class="center-box">
+                    <p>... You're somehow still in luck, there's an extra tool you can use</p>
+                    <p>
+                        <ul>
+                            <li><a href="https://cli.github.com/" target="_blank" rel="noreferrer noopener">GitHub CLI</a></li>
+                        </ul>
+                    </p>
+                </div>
             </section>
 
             <!--
@@ -489,6 +514,7 @@
                             <li><a href="https://www.freecodecamp.org/news/git-and-github-crash-course/" target="_blank" rel="noreferrer noopener">Git & GitHub Crash Course Video - FreeCodeCamp</a> - Video Crash Course for Git & GitHub</li>
                             <li><a href="http://www-cs-students.stanford.edu/~blynn/gitmagic/pr01.html" target="_blank" rel="noreferrer noopener">Git is Magic</a> - A very in-depth guide</li>
                             <li><a href="http://justinhileman.info/article/git-pretty/full/" target="_blank" rel="noreferrer noopener">Oh no, I have a git mess</a> - A flowchart to get you out of even the trickiest of git messes</li>
+                            <li><a href="https://ohshitgit.com/" target="_blank" rel="noreferrer noopener">Oh shit git</a> - If you made a mistake, this will tell you how to fix it</li>
                             <li><a href="https://cbea.ms/git-commit/" target="_blank" rel="noreferrer noopener">How to Write a Git Commit Message</a> - How to write good Git commit messages for future you and your teammates/coworkers</li>
                         </ul>
                     </p>
