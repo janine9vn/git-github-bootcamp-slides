@@ -79,9 +79,9 @@
                             <li>It keeps track of the history (and your git settings) in a folder called
                                 <code>.git</code>
                             </li>
-                            <li>You can <code>push</code> code from your computer to a a hosted environment (i.e.
-                                GitHub, GitLab)</li>
-                            <li>You can <code>fetch</code> or <code>pull</code> code from that hosted environment to
+                            <li>Your code can be hosted on a server (i.e. GitHub, GitLab) for collaboration or backups</li>
+                            <li>You can <code>push</code> your updated code from your computer to that hosted environment</li>
+                            <li>You can <code>fetch</code> or <code>pull</code> the latest code from that hosted environment to
                                 your computer</li>
                         </ul>
                         </p>
@@ -123,7 +123,7 @@
 							<code data-trim>
 								apt-get install git
 								pacman -S git
-								yum install git
+								dnf install git
 							</code>
 						</pre>
                         </p>
@@ -150,8 +150,9 @@
                     <br />
                     <p>By default, git will use your default test editor for your commits. If you'd like to change it,
                         this is the command to run.</p>
-                    <pre><code data-trim>git config --global core.editor path_variable_for_editor_here</code></pre>
+                    <pre><code data-trim>git config --global core.editor $EDITOR</code></pre>
                     <p>In general, something like nano, notepad++, or vim is recommended.</p>
+                    <p><i>Note: <pre>$EDITOR</pre> is the path variable for your preferred editor</i></p>
                 </div>
             </section>
 
@@ -207,7 +208,7 @@
                 </ol>
                 </p>
                 <div class="text-center">
-                    <p>VSCode and PyCharm have git interfaces if you'd rather not use the terminal, let'c check out both of those now.</p>
+                    <p>VSCode and PyCharm have git interfaces if you'd rather not use the terminal, let's check out both of those now.</p>
                 </div>
             </section>
 
